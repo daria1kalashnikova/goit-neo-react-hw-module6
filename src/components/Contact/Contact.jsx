@@ -1,21 +1,21 @@
 import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa";
 
-function Contact({ id, username, phone, deleteContact }) {
+function Contact({ contact, onDelete }) {
   return (
-    <li key={id} id={id} className={css.contact}>
+    <li key={contact.id} id={contact.id} className={css.contact}>
       <div className={css["contact-info"]}>
         <p>
-          <FaUser className={css["contact-info-icon"]} /> {username}
+          <FaUser className={css["contact-info-icon"]} /> {contact.name}
         </p>
         <p>
-          <FaPhone className={css["contact-info-icon"]} /> {phone}
+          <FaPhone className={css["contact-info-icon"]} /> {contact.number}
         </p>
       </div>
       <button
         className="button"
         type="button"
-        onClick={() => deleteContact(id)}
+        onClick={() => onDelete(contact.id)}
       >
         Delete
       </button>
